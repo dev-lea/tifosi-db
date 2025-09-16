@@ -3,6 +3,13 @@ DROP DATABASE IF EXISTS tifosi;
 CREATE DATABASE tifosi CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE tifosi;
 
+-- --- utilisateur d'application pour administrer la base ---
+DROP USER IF EXISTS 'tifosi'@'localhost';
+CREATE USER IF NOT EXISTS 'tifosi'@'localhost' IDENTIFIED BY 'Tifosi2025!';
+GRANT ALL PRIVILEGES ON tifosi.* TO 'tifosi'@'localhost';
+FLUSH PRIVILEGES;
+-- --- fin utilisateur ---
+
 CREATE TABLE marque (
   id_marque INT PRIMARY KEY,
   nom_marque VARCHAR(100) NOT NULL UNIQUE
